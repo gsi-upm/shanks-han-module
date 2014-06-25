@@ -61,4 +61,23 @@ public class HANSimulation extends ShanksSimulation {
 		// TODO Auto-generated constructor stub
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see es.upm.dit.gsi.shanks.ShanksSimulation#addSteppables()
+	 */
+	@Override
+	public void addSteppables() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see es.upm.dit.gsi.shanks.ShanksSimulation#registerShanksAgents()
+	 */
+	@Override
+	public void registerShanksAgents() throws ShanksException {
+		// TODO Auto-generated constructor stub
+	}
 }
