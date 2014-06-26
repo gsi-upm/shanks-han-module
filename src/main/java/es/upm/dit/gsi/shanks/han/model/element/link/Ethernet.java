@@ -37,7 +37,7 @@ import es.upm.dit.gsi.shanks.model.element.link.Link;
  * @version 0.1
  * 
  */
-public class EthernetLink extends Link {
+public class Ethernet extends Link {
 
 	/**
 	 * Constructor
@@ -48,7 +48,7 @@ public class EthernetLink extends Link {
 	 * @param logger
 	 * @throws ShanksException
 	 */
-	public EthernetLink(String id, String initialState, int capacity,
+	public Ethernet(String id, String initialState, int capacity,
 			Logger logger) throws ShanksException {
 		super(id, initialState, capacity, logger);
 		// TODO Auto-generated constructor stub
