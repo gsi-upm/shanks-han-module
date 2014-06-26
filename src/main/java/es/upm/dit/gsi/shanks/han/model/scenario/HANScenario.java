@@ -70,13 +70,18 @@ public class HANScenario extends Scenario {
 	// *******************************
 	// ROUTER
 	// *******************************
+
+	// Router Devices
 	ONT ont = new ONT("ont", "OK", false, this.getLogger());
 	Router router = new Router("router", "OK", false, this.getLogger());
 
+	// Router Links
 	EthernetLink ethont = new EthernetLink("eth-ont-router", "OK", this.getLogger());
 
+	// Connections in Router
 	ethont.connectDevices(ont, router);
 
+	// Add network elements to the simulation
 	this.addNetworkElement(router);
 	this.addNetworkElement(ont);
 	this.addNetworkElement(ethont);
@@ -183,13 +188,23 @@ public class HANScenario extends Scenario {
 	// *******************************
 
 	// Mobile Devices
+	SmartPhone nexus = new SmartPhone("nexus", "OFF", false, this.getLogger());
+	SmartPhone ace = new SmartPhone("ace", "OFF", false, this.getLogger());
 
 	// Mobile Links
+	WifiLink wifinexus = new WifiLink("wifi-router-nexus", "OK", this.getLogger());
+	WifiLink wifiace = new WifiLink("wifi-router-ace", "OK", this.getLogger());
 
 	// Connections in Mobile
-
+	wifinexus.connectDevices(router, nexus);
+	wifiace.connectDevices(router, ace);
+	
 	// Adds network elements to the simulation
-
+	this.addNetworkElement(nexus);
+	this.addNetworkElement(ace);
+	this.addNetworkElement(wifinexus);
+	this.addNetworkElement(wifiace);
+	
     }
 
     /*

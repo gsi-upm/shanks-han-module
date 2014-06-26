@@ -28,6 +28,7 @@ import es.upm.dit.gsi.shanks.han.model.element.device.ONT;
 import es.upm.dit.gsi.shanks.han.model.element.device.Printer;
 import es.upm.dit.gsi.shanks.han.model.element.device.Router;
 import es.upm.dit.gsi.shanks.han.model.element.device.Server;
+import es.upm.dit.gsi.shanks.han.model.element.device.SmartPhone;
 import es.upm.dit.gsi.shanks.han.model.element.device.Switch;
 import es.upm.dit.gsi.shanks.han.model.element.device.TV;
 import es.upm.dit.gsi.shanks.han.model.element.device.WifiAP;
@@ -135,6 +136,14 @@ public class HANScenario2DPortrayal extends Scenario2DPortrayal {
 	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-mystra"));
 	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-prometeo"));
 	this.drawLink((Link) this.getScenario().getNetworkElement("usb-printer-mystra"));
+	
+
+	// *******************************
+	// MOBILE
+	// *******************************
+	this.situateDevice((Device) this.getScenario().getNetworkElement("nexus"), 50, 150);
+	this.situateDevice((Device) this.getScenario().getNetworkElement("ace"), 50, 250);
+	
     }
 
     /*
@@ -174,6 +183,8 @@ public class HANScenario2DPortrayal extends Scenario2DPortrayal {
 		    "src/main/resources/icons/server.png"));
 	    devicePortrayal.setPortrayalForClass(Printer.class, new StaticIcon2DPortrayal(
 		    "src/main/resources/icons/printer.png"));
+	    devicePortrayal.setPortrayalForClass(SmartPhone.class, new StaticIcon2DPortrayal(
+		    "src/main/resources/icons/pda.png"));
 
 	    // Portrayals for links
 	    networkPortrayal.setPortrayalForClass(EthernetLink.class, new EthernetLink2DPortrayal());
