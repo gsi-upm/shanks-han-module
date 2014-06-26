@@ -15,16 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.upm.dit.gsi.shanks.han.model.element.link;
+package es.upm.dit.gsi.shanks.han.model.element.device;
 
 import java.util.logging.Logger;
 
 import es.upm.dit.gsi.shanks.exception.ShanksException;
-import es.upm.dit.gsi.shanks.model.element.link.Link;
+import es.upm.dit.gsi.shanks.model.element.device.Device;
 
 /**
  * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.link.USBLink.java
+ * File: es.upm.dit.gsi.shanks.han.model.element.device.Printer.java
  * 
  * Grupo de Sistemas Inteligentes
  * Departamento de Ingeniería de Sistemas Telemáticos
@@ -33,25 +33,33 @@ import es.upm.dit.gsi.shanks.model.element.link.Link;
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
  * @twitter @alvarocarrera
- * @date 25/06/2014
+ * @date 26/06/2014
  * @version 0.1
  * 
  */
-public class USB extends Link {
+public class Printer extends Device {
 
 	/**
 	 * Constructor
 	 *
 	 * @param id
 	 * @param initialState
-	 * @param capacity
+	 * @param isGateway
 	 * @param logger
-	 * @throws ShanksException
 	 */
-	public USB(String id, String initialState, int capacity, Logger logger)
-			throws ShanksException {
-		super(id, initialState, capacity, logger);
+	public Printer(String id, String initialState, boolean isGateway,
+			Logger logger) {
+		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
+	}
+
+	/* (non-Javadoc)
+	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
+	 */
+	@Override
+	public void fillIntialProperties() {
+		// TODO Auto-generated method stub
+
 	}
 
 	/* (non-Javadoc)
@@ -68,15 +76,6 @@ public class USB extends Link {
 	 */
 	@Override
 	public void checkStatus() throws ShanksException {
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
-	 */
-	@Override
-	public void fillIntialProperties() {
 		// TODO Auto-generated method stub
 
 	}

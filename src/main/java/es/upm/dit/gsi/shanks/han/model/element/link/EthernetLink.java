@@ -24,7 +24,7 @@ import es.upm.dit.gsi.shanks.model.element.link.Link;
 
 /**
  * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.link.HDMILink.java
+ * File: es.upm.dit.gsi.shanks.han.model.element.link.EthernetLink.java
  * 
  * Grupo de Sistemas Inteligentes
  * Departamento de Ingeniería de Sistemas Telemáticos
@@ -37,20 +37,19 @@ import es.upm.dit.gsi.shanks.model.element.link.Link;
  * @version 0.1
  * 
  */
-public class HDMI extends Link {
+public class EthernetLink extends Link {
 
 	/**
 	 * Constructor
 	 *
 	 * @param id
 	 * @param initialState
-	 * @param capacity
 	 * @param logger
 	 * @throws ShanksException
 	 */
-	public HDMI(String id, String initialState, int capacity, Logger logger)
-			throws ShanksException {
-		super(id, initialState, capacity, logger);
+	public EthernetLink(String id, String initialState,
+			Logger logger) throws ShanksException {
+		super(id, initialState, 2, logger);
 		// TODO Auto-generated constructor stub
 	}
 

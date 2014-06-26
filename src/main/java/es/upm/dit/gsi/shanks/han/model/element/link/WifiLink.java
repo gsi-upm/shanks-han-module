@@ -37,20 +37,19 @@ import es.upm.dit.gsi.shanks.model.element.link.Link;
  * @version 0.1
  * 
  */
-public class Wifi extends Link {
+public class WifiLink extends Link {
 
 	/**
 	 * Constructor
 	 *
 	 * @param id
 	 * @param initialState
-	 * @param capacity
 	 * @param logger
 	 * @throws ShanksException
 	 */
-	public Wifi(String id, String initialState, int capacity,
+	public WifiLink(String id, String initialState,
 			Logger logger) throws ShanksException {
-		super(id, initialState, capacity, logger);
+		super(id, initialState, 2, logger);
 		// TODO Auto-generated constructor stub
 	}
 

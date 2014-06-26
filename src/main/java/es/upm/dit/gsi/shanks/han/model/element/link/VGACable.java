@@ -15,16 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.upm.dit.gsi.shanks.han.model.element.device;
+package es.upm.dit.gsi.shanks.han.model.element.link;
 
 import java.util.logging.Logger;
 
 import es.upm.dit.gsi.shanks.exception.ShanksException;
-
+import es.upm.dit.gsi.shanks.model.element.link.Link;
 
 /**
  * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.device.IPTVSetTopBox.java
+ * File: es.upm.dit.gsi.shanks.han.model.element.link.VGALink.java
  * 
  * Grupo de Sistemas Inteligentes
  * Departamento de Ingeniería de Sistemas Telemáticos
@@ -37,19 +37,20 @@ import es.upm.dit.gsi.shanks.exception.ShanksException;
  * @version 0.1
  * 
  */
-public class IPTVSetTopBox extends SetTopBox {
+public class VGACable extends Link {
 
 	/**
 	 * Constructor
 	 *
 	 * @param id
 	 * @param initialState
-	 * @param isGateway
+	 * @param capacity
 	 * @param logger
+	 * @throws ShanksException
 	 */
-	public IPTVSetTopBox(String id, String initialState, boolean isGateway,
-			Logger logger) {
-		super(id, initialState, isGateway, logger);
+	public VGACable(String id, String initialState, int capacity, Logger logger)
+			throws ShanksException {
+		super(id, initialState, capacity, logger);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -59,7 +60,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void checkProperties() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -68,7 +69,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void checkStatus() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -77,7 +78,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void fillIntialProperties() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -86,7 +87,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void setPossibleStates() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

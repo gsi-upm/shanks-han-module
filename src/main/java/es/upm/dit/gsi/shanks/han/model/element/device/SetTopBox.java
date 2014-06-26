@@ -20,11 +20,11 @@ package es.upm.dit.gsi.shanks.han.model.element.device;
 import java.util.logging.Logger;
 
 import es.upm.dit.gsi.shanks.exception.ShanksException;
-
+import es.upm.dit.gsi.shanks.model.element.device.Device;
 
 /**
  * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.device.IPTVSetTopBox.java
+ * File: es.upm.dit.gsi.shanks.han.model.element.device.SetTopBox.java
  * 
  * Grupo de Sistemas Inteligentes
  * Departamento de Ingeniería de Sistemas Telemáticos
@@ -33,11 +33,11 @@ import es.upm.dit.gsi.shanks.exception.ShanksException;
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
  * @twitter @alvarocarrera
- * @date 25/06/2014
+ * @date 26/06/2014
  * @version 0.1
  * 
  */
-public class IPTVSetTopBox extends SetTopBox {
+public class SetTopBox extends Device {
 
 	/**
 	 * Constructor
@@ -47,7 +47,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	 * @param isGateway
 	 * @param logger
 	 */
-	public IPTVSetTopBox(String id, String initialState, boolean isGateway,
+	public SetTopBox(String id, String initialState, boolean isGateway,
 			Logger logger) {
 		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
@@ -59,7 +59,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void checkProperties() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -68,7 +68,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void checkStatus() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -77,7 +77,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void fillIntialProperties() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -86,7 +86,7 @@ public class IPTVSetTopBox extends SetTopBox {
 	@Override
 	public void setPossibleStates() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

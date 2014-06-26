@@ -17,13 +17,18 @@
  */
 package es.upm.dit.gsi.shanks.han.model;
 
+import java.util.Properties;
+
+import es.upm.dit.gsi.shanks.exception.ShanksException;
+import es.upm.dit.gsi.shanks.han.model.scenario.HANScenario;
+import es.upm.dit.gsi.shanks.model.scenario.Scenario;
+
 /**
- * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.HANSimulationLauncher.java
+ * Project: shanks-han-module File:
+ * es.upm.dit.gsi.shanks.han.model.HANSimulationLauncher.java
  * 
- * Grupo de Sistemas Inteligentes
- * Departamento de Ingeniería de Sistemas Telemáticos
- * Universidad Politécnica de Madrid (UPM)
+ * Grupo de Sistemas Inteligentes Departamento de Ingeniería de Sistemas
+ * Telemáticos Universidad Politécnica de Madrid (UPM)
  * 
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
@@ -36,10 +41,15 @@ public class HANSimulationLauncher {
 
 	/**
 	 * @param args
+	 * @throws ShanksException 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws ShanksException {
+		Properties scenarioProperties = new Properties();
+		scenarioProperties.put(Scenario.SIMULATION_GUI, Scenario.SIMULATION_2D);
+		HANSimulation sim = new HANSimulation(System.currentTimeMillis(),
+				HANScenario.class, "HANScenario", "OK", scenarioProperties);
+		HANSimulation2DGUI gui = new HANSimulation2DGUI(sim);
+		gui.start();
 	}
 
 }
