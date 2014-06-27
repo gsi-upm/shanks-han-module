@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>es.upm.dit.gsi</groupId>
+	<groupId>es.upm.dit.gsi.shanks</groupId>
 	<artifactId>shanks-han-module</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HAN Module for SHANKS</name>
@@ -71,7 +71,7 @@
 		<dependency>
 			<groupId>es.upm.dit.gsi.shanks</groupId>
 			<artifactId>shanks-core</artifactId>
-			<version>0.3.2</version>
+			<version>0.3.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
