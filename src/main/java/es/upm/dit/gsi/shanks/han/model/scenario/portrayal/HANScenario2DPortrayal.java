@@ -33,10 +33,7 @@ import es.upm.dit.gsi.shanks.han.model.element.device.Switch;
 import es.upm.dit.gsi.shanks.han.model.element.device.TV;
 import es.upm.dit.gsi.shanks.han.model.element.device.WifiAP;
 import es.upm.dit.gsi.shanks.han.model.element.device.portrayal.StaticIcon2DPortrayal;
-import es.upm.dit.gsi.shanks.han.model.element.link.EthernetLink;
-import es.upm.dit.gsi.shanks.han.model.element.link.HDMICable;
-import es.upm.dit.gsi.shanks.han.model.element.link.USBCable;
-import es.upm.dit.gsi.shanks.han.model.element.link.portrayal.EthernetLink2DPortrayal;
+import es.upm.dit.gsi.shanks.han.model.element.link.portrayal.HANLink2DPortrayal;
 import es.upm.dit.gsi.shanks.model.element.device.Device;
 import es.upm.dit.gsi.shanks.model.element.link.Link;
 import es.upm.dit.gsi.shanks.model.scenario.Scenario;
@@ -60,142 +57,142 @@ import es.upm.dit.gsi.shanks.model.scenario.portrayal.ScenarioPortrayal;
  */
 public class HANScenario2DPortrayal extends Scenario2DPortrayal {
 
-    /**
-     * Constructor
-     * 
-     * @param scenario
-     * @param width
-     * @param height
-     * @throws ShanksException
-     */
-    public HANScenario2DPortrayal(Scenario scenario, int width, int height) throws ShanksException {
-	super(scenario, width, height);
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.Scenario2DPortrayal#
-     * addPortrayals()
-     */
-    @Override
-    public void addPortrayals() {
-	// TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.Scenario2DPortrayal#
-     * placeElements()
-     */
-    @Override
-    public void placeElements() {
-	// *******************************
-	// ROUTER
-	// *******************************
-	this.situateDevice((Device) this.getScenario().getNetworkElement("router"), 400, 80);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("ont"), 200, 80);
-
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-ont-router"));
-
-	// *******************************
-	// LIVING ROOM
-	// *******************************
-	this.situateDevice((Device) this.getScenario().getNetworkElement("tv-living"), 250, 700);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("switch"), 250, 450);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("ap"), 80, 740);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("stb-iptv"), 250, 780);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("laptop-asus"), 400, 750);
-
-	this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-stb-tvliving"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-asus-tvliving"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-switch"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-asus"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-ap"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-stb"));
-
-	// *******************************
-	// BEDROOM
-	// *******************************
-	this.situateDevice((Device) this.getScenario().getNetworkElement("tv-bedroom"), 750, 650);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("android-stb"), 750, 750);
-
-	this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-androidstb-tvbedroom"));
-
-	// *******************************
-	// OFFICE
-	// *******************************
-	this.situateDevice((Device) this.getScenario().getNetworkElement("desktop-gea"), 780, 150);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("desktop-mystra"), 750, 50);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("server-prometeo"), 700, 250);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("printer"), 650, 30);
-
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-gea"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-mystra"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-prometeo"));
-	this.drawLink((Link) this.getScenario().getNetworkElement("usb-printer-mystra"));
-	
-
-	// *******************************
-	// MOBILE
-	// *******************************
-	this.situateDevice((Device) this.getScenario().getNetworkElement("nexus"), 50, 150);
-	this.situateDevice((Device) this.getScenario().getNetworkElement("ace"), 50, 250);
-	
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.ScenarioPortrayal#
-     * setupPortrayals()
-     */
-    @Override
-    public void setupPortrayals() {
-	try {
-	    ContinuousPortrayal2D devicePortrayal = (ContinuousPortrayal2D) this.getPortrayals()
-		    .get(Scenario2DPortrayal.MAIN_DISPLAY_ID).get(ScenarioPortrayal.DEVICES_PORTRAYAL);
-	    NetworkPortrayal2D networkPortrayal = (NetworkPortrayal2D) this.getPortrayals()
-		    .get(Scenario2DPortrayal.MAIN_DISPLAY_ID).get(ScenarioPortrayal.LINKS_PORTRAYAL);
-
-	    // Portrayals for devices
-	    devicePortrayal
-		    .setPortrayalForClass(TV.class, new StaticIcon2DPortrayal("src/main/resources/icons/tv.png"));
-	    devicePortrayal.setPortrayalForClass(IPTVSetTopBox.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/stb.png"));
-	    devicePortrayal.setPortrayalForClass(Switch.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/switch.png"));
-	    devicePortrayal.setPortrayalForClass(Router.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/wirelessrouter.png"));
-	    devicePortrayal.setPortrayalForClass(ONT.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/modem.png"));
-	    devicePortrayal.setPortrayalForClass(Laptop.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/laptop.png"));
-	    devicePortrayal.setPortrayalForClass(WifiAP.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/wirelessrouter.png"));
-	    devicePortrayal.setPortrayalForClass(AndroidSetTopBox.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/stb.png"));
-	    devicePortrayal.setPortrayalForClass(Desktop.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/pc.png"));
-	    devicePortrayal.setPortrayalForClass(Server.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/server.png"));
-	    devicePortrayal.setPortrayalForClass(Printer.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/printer.png"));
-	    devicePortrayal.setPortrayalForClass(SmartPhone.class, new StaticIcon2DPortrayal(
-		    "src/main/resources/icons/pda.png"));
-
-	    // Portrayals for links
-	    networkPortrayal.setPortrayalForClass(EthernetLink.class, new EthernetLink2DPortrayal());
-	    networkPortrayal.setPortrayalForClass(HDMICable.class, new EthernetLink2DPortrayal());
-	    networkPortrayal.setPortrayalForClass(USBCable.class, new EthernetLink2DPortrayal());
-
-	} catch (Exception e) {
-	    this.getScenario().getLogger()
-		    .warning("Error configuring portrayals for the simulation: " + e.getMessage());
-	    e.printStackTrace();
+	/**
+	 * Constructor
+	 * 
+	 * @param scenario
+	 * @param width
+	 * @param height
+	 * @throws ShanksException
+	 */
+	public HANScenario2DPortrayal(Scenario scenario, int width, int height) throws ShanksException {
+		super(scenario, width, height);
 	}
-    }
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.Scenario2DPortrayal#
+	 * addPortrayals()
+	 */
+	@Override
+	public void addPortrayals() {
+		// TODO Auto-generated method stub
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.Scenario2DPortrayal#
+	 * placeElements()
+	 */
+	@Override
+	public void placeElements() {
+		// *******************************
+		// ROUTER
+		// *******************************
+		this.situateDevice((Device) this.getScenario().getNetworkElement("router"), 400, 80);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("ont"), 200, 80);
+
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-ont-router"));
+
+		// *******************************
+		// LIVING ROOM
+		// *******************************
+		this.situateDevice((Device) this.getScenario().getNetworkElement("switch"), 250, 450);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("ap"), 80, 740);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("stb-iptv"), 450, 700);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("tv-living"), 450, 780);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("laptop-asus"), 275, 750);
+
+		this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-stb-tvliving"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-asus-tvliving"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-switch"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-asus"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-ap"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-switch-stb"));
+
+		// *******************************
+		// BEDROOM
+		// *******************************
+		this.situateDevice((Device) this.getScenario().getNetworkElement("tv-bedroom"), 750, 650);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("android-stb"), 750, 750);
+
+		this.drawLink((Link) this.getScenario().getNetworkElement("hdmi-androidstb-tvbedroom"));
+
+		// *******************************
+		// OFFICE
+		// *******************************
+		this.situateDevice((Device) this.getScenario().getNetworkElement("desktop-gea"), 780, 150);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("desktop-mystra"), 750, 50);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("server-prometeo"), 700, 250);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("printer"), 600, 20);
+
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-gea"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-mystra"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("eth-router-prometeo"));
+		this.drawLink((Link) this.getScenario().getNetworkElement("usb-printer-mystra"));
+
+		// *******************************
+		// MOBILE
+		// *******************************
+		this.situateDevice((Device) this.getScenario().getNetworkElement("nexus"), 50, 250);
+		this.situateDevice((Device) this.getScenario().getNetworkElement("ace"), 650, 450);
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see es.upm.dit.gsi.shanks.model.scenario.portrayal.ScenarioPortrayal#
+	 * setupPortrayals()
+	 */
+	@Override
+	public void setupPortrayals() {
+		try {
+			ContinuousPortrayal2D devicePortrayal = (ContinuousPortrayal2D) this.getPortrayals()
+					.get(Scenario2DPortrayal.MAIN_DISPLAY_ID).get(ScenarioPortrayal.DEVICES_PORTRAYAL);
+			NetworkPortrayal2D networkPortrayal = (NetworkPortrayal2D) this.getPortrayals()
+					.get(Scenario2DPortrayal.MAIN_DISPLAY_ID).get(ScenarioPortrayal.LINKS_PORTRAYAL);
+
+			// Portrayals for devices
+			devicePortrayal
+					.setPortrayalForClass(TV.class, new StaticIcon2DPortrayal("src/main/resources/icons/tv.png"));
+			devicePortrayal.setPortrayalForClass(IPTVSetTopBox.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/stb.png"));
+			devicePortrayal.setPortrayalForClass(Switch.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/switch.png"));
+			devicePortrayal.setPortrayalForClass(Router.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/wirelessrouter.png"));
+			devicePortrayal.setPortrayalForClass(ONT.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/modem.png"));
+			devicePortrayal.setPortrayalForClass(Laptop.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/laptop.png"));
+			devicePortrayal.setPortrayalForClass(WifiAP.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/wirelessrouter.png"));
+			devicePortrayal.setPortrayalForClass(AndroidSetTopBox.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/stb.png"));
+			devicePortrayal.setPortrayalForClass(Desktop.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/pc.png"));
+			devicePortrayal.setPortrayalForClass(Server.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/server.png"));
+			devicePortrayal.setPortrayalForClass(Printer.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/printer.png"));
+			devicePortrayal.setPortrayalForClass(SmartPhone.class, new StaticIcon2DPortrayal(
+					"src/main/resources/icons/pda.png"));
+
+			// Portrayals for links
+			networkPortrayal.setPortrayalForAll(new HANLink2DPortrayal());
+			// NOTE: All objects in the network portrayal are Edge. Thus, we
+			// have to specify only one portrayal and paint different links in
+			// the code of that portrayal.
+
+		} catch (Exception e) {
+			this.getScenario().getLogger()
+					.warning("Error configuring portrayals for the simulation: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 
 }

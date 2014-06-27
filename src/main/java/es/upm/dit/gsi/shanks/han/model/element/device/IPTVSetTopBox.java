@@ -21,14 +21,12 @@ import java.util.logging.Logger;
 
 import es.upm.dit.gsi.shanks.exception.ShanksException;
 
-
 /**
- * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.device.IPTVSetTopBox.java
+ * Project: shanks-han-module File:
+ * es.upm.dit.gsi.shanks.han.model.element.device.IPTVSetTopBox.java
  * 
- * Grupo de Sistemas Inteligentes
- * Departamento de Ingeniería de Sistemas Telemáticos
- * Universidad Politécnica de Madrid (UPM)
+ * Grupo de Sistemas Inteligentes Departamento de Ingeniería de Sistemas
+ * Telemáticos Universidad Politécnica de Madrid (UPM)
  * 
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
@@ -41,52 +39,61 @@ public class IPTVSetTopBox extends SetTopBox {
 
 	/**
 	 * Constructor
-	 *
+	 * 
 	 * @param id
 	 * @param initialState
 	 * @param isGateway
 	 * @param logger
 	 */
-	public IPTVSetTopBox(String id, String initialState, boolean isGateway,
-			Logger logger) {
+	public IPTVSetTopBox(String id, String initialState, boolean isGateway, Logger logger) {
 		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkProperties()
 	 */
 	@Override
 	public void checkProperties() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkStatus()
 	 */
 	@Override
 	public void checkStatus() throws ShanksException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
 	 */
 	@Override
 	public void fillIntialProperties() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
 	 */
 	@Override
 	public void setPossibleStates() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -37,14 +37,13 @@ public class Server extends Computer {
 
 	/**
 	 * Constructor
-	 *
+	 * 
 	 * @param id
 	 * @param initialState
 	 * @param isGateway
 	 * @param logger
 	 */
-	public Server(String id, String initialState, boolean isGateway,
-			Logger logger) {
+	public Server(String id, String initialState, boolean isGateway, Logger logger) {
 		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
 	}

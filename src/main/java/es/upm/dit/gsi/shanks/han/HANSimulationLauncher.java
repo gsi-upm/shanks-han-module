@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.upm.dit.gsi.shanks.han.model;
+package es.upm.dit.gsi.shanks.han;
 
 import java.util.Properties;
 
@@ -41,13 +41,13 @@ public class HANSimulationLauncher {
 
 	/**
 	 * @param args
-	 * @throws ShanksException 
+	 * @throws ShanksException
 	 */
 	public static void main(String[] args) throws ShanksException {
 		Properties scenarioProperties = new Properties();
 		scenarioProperties.put(Scenario.SIMULATION_GUI, Scenario.SIMULATION_2D);
-		HANSimulation sim = new HANSimulation(System.currentTimeMillis(),
-				HANScenario.class, "HANScenario", "OK", scenarioProperties);
+		HANSimulation sim = new HANSimulation(System.currentTimeMillis(), HANScenario.class, "HANScenario", "OK",
+				scenarioProperties);
 		HANSimulation2DGUI gui = new HANSimulation2DGUI(sim);
 		gui.start();
 	}

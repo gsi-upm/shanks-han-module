@@ -69,8 +69,7 @@ public class ImageLoaderHelper {
 			io = new ImageObserver() {
 
 				@Override
-				public boolean imageUpdate(Image img, int infoflags, int x,
-						int y, int width, int height) {
+				public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
 					return false;
 				}
 			};
@@ -100,14 +99,12 @@ public class ImageLoaderHelper {
 	 * @return
 	 * @throws IOException
 	 */
-	public static Image getImage(String filePath, String format)
-			throws IOException {
+	public static Image getImage(String filePath, String format) throws IOException {
 		File file = new File(filePath);
 
 		if (reader == null) {
 			// Find a suitable ImageReader
-			Iterator<ImageReader> readers = ImageIO
-					.getImageReadersByFormatName(format);
+			Iterator<ImageReader> readers = ImageIO.getImageReadersByFormatName(format);
 			while (readers.hasNext()) {
 				reader = (ImageReader) readers.next();
 				if (reader.canReadRaster()) {
@@ -123,8 +120,7 @@ public class ImageLoaderHelper {
 		Raster raster = reader.readRaster(0, null);
 
 		// Create a new RGB image
-		Image bi = new BufferedImage(raster.getWidth(), raster.getHeight(),
-				BufferedImage.TYPE_4BYTE_ABGR);
+		Image bi = new BufferedImage(raster.getWidth(), raster.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
 
 		// Fill the new image with the old raster
 		((BufferedImage) bi).getRaster().setRect(raster);
@@ -142,8 +138,7 @@ public class ImageLoaderHelper {
 	 *            Color in provided image which will be made transparent.
 	 * @return Image with transparency applied.
 	 */
-	public static Image makeColorTransparent(final BufferedImage im,
-			final Color color) {
+	public static Image makeColorTransparent(final BufferedImage im, final Color color) {
 		final ImageFilter filter = new RGBImageFilter() {
 			// the color we are looking for (white)... Alpha bits are set to
 			// opaque

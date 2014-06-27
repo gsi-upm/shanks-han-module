@@ -23,12 +23,11 @@ import es.upm.dit.gsi.shanks.exception.ShanksException;
 import es.upm.dit.gsi.shanks.model.element.link.Link;
 
 /**
- * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.link.VGALink.java
+ * Project: shanks-han-module File:
+ * es.upm.dit.gsi.shanks.han.model.element.link.VGALink.java
  * 
- * Grupo de Sistemas Inteligentes
- * Departamento de Ingeniería de Sistemas Telemáticos
- * Universidad Politécnica de Madrid (UPM)
+ * Grupo de Sistemas Inteligentes Departamento de Ingeniería de Sistemas
+ * Telemáticos Universidad Politécnica de Madrid (UPM)
  * 
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
@@ -41,20 +40,21 @@ public class VGACable extends Link {
 
 	/**
 	 * Constructor
-	 *
+	 * 
 	 * @param id
 	 * @param initialState
 	 * @param capacity
 	 * @param logger
 	 * @throws ShanksException
 	 */
-	public VGACable(String id, String initialState, int capacity, Logger logger)
-			throws ShanksException {
+	public VGACable(String id, String initialState, int capacity, Logger logger) throws ShanksException {
 		super(id, initialState, capacity, logger);
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkProperties()
 	 */
 	@Override
@@ -63,7 +63,9 @@ public class VGACable extends Link {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkStatus()
 	 */
 	@Override
@@ -72,8 +74,11 @@ public class VGACable extends Link {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
 	 */
 	@Override
 	public void fillIntialProperties() {
@@ -81,8 +86,11 @@ public class VGACable extends Link {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
 	 */
 	@Override
 	public void setPossibleStates() {

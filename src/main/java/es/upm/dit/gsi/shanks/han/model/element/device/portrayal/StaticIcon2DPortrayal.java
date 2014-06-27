@@ -17,15 +17,22 @@
  */
 package es.upm.dit.gsi.shanks.han.model.element.device.portrayal;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 
 import sim.display.Display2D;
+import sim.display.GUIState;
 import sim.portrayal.DrawInfo2D;
+import sim.portrayal.Inspector;
+import sim.portrayal.LocationWrapper;
+import sim.portrayal.SimpleInspector;
 import es.upm.dit.gsi.shanks.ShanksSimulation;
 import es.upm.dit.gsi.shanks.exception.ShanksException;
+import es.upm.dit.gsi.shanks.model.element.device.Device;
 import es.upm.dit.gsi.shanks.model.element.device.portrayal.Device2DPortrayal;
 import es.upm.dit.gsi.shanks.model.scenario.portrayal.Scenario2DPortrayal;
 
@@ -51,6 +58,7 @@ public class StaticIcon2DPortrayal extends Device2DPortrayal {
 	private static final long serialVersionUID = 5486154563070637705L;
 	private Image image = null;
 	private ImageObserver io = null;
+	private double scale = 1.0;
 
 	/**
 	 * Constructor
@@ -78,30 +86,80 @@ public class StaticIcon2DPortrayal extends Device2DPortrayal {
 	public void draw(Object object, Graphics2D graphics, DrawInfo2D info) {
 
 		ShanksSimulation sim = (ShanksSimulation) info.gui.state;
-		double scale = 1.0;
 		try {
-			Scenario2DPortrayal scenarioPortrayal = (Scenario2DPortrayal) sim
-					.getScenarioPortrayal();
-			Display2D mainDisplay = scenarioPortrayal.getDisplays().get(
-					Scenario2DPortrayal.MAIN_DISPLAY_ID);
+			Scenario2DPortrayal scenarioPortrayal = (Scenario2DPortrayal) sim.getScenarioPortrayal();
+			Display2D mainDisplay = scenarioPortrayal.getDisplays().get(Scenario2DPortrayal.MAIN_DISPLAY_ID);
 			scale = mainDisplay.getScale();
 		} catch (ShanksException e) {
 			sim.getLogger().warning(
-					"Problems to get the scale in the main display window. Exception message: "
-							+ e.getMessage());
+					"Problems to get the scale in the main display window. Exception message: " + e.getMessage());
 		}
 
 		// Draw the devices
 		double width = image.getWidth(io) * scale;
 		double height = image.getHeight(io) * scale;
-		final int x = (int) (info.draw.x - width / 2.0);
-		final int y = (int) (info.draw.y - height / 2.0);
-		final int w = (int) (width);
-		final int h = (int) (height);
+		int x = (int) (info.draw.x - width / 2.0);
+		int y = (int) (info.draw.y - height / 2.0);
+		int w = (int) (width);
+		int h = (int) (height);
 
-		// graphics.setXORMode(Color.red);
 		graphics.drawImage(image, x, y, w, h, io);
-		// graphics.setPaintMode();
+
+		// Draw a rectagle that represent the status of the device
+		Rectangle2D.Double draw = info.draw;
+
+		Color color = Color.green;
+		double random = sim.random.nextDouble();
+		if (random < 0.15) {
+			color = Color.blue;
+		} else if (random < 0.3) {
+			color = Color.white;
+		} else if (random < 0.5) {
+			color = Color.red;
+		} else if (random < 0.9) {
+			color = Color.black;
+		}
+
+		graphics.setPaint(color);
+		x = (int) (draw.x - 5.0D);
+		y = (int) (draw.y - 5.0D);
+
+		graphics.fillRect(x, y, 10, 10);
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see sim.portrayal.SimplePortrayal2D#hitObject(java.lang.Object,
+	 * sim.portrayal.DrawInfo2D)
+	 */
+	public boolean hitObject(Object object, DrawInfo2D info) {
+		double w = image.getWidth(io);
+		double h = image.getHeight(io);
+		// double w = info.draw.width;
+		// double h = info.draw.height;
+		double x = (info.draw.x - w / 2.0);
+		double y = (info.draw.y - h / 2.0);
+		Rectangle2D target = info.clip;
+		// target.setRect(info.clip.x, info.clip.y, info.clip.width * 500.0,
+		// info.clip.height * 500.0);
+		boolean value = target.intersects(x, y, w, h);
+		return value;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * 
+	 * sim.portrayal.SimplePortrayal2D#getInspector(sim.portrayal.LocationWrapper
+	 * , sim.display.GUIState)
+	 */
+	public Inspector getInspector(LocationWrapper wrapper, GUIState state) {
+		Device obj = (Device) wrapper.getObject();
+		Inspector inspector = new SimpleInspector(obj, state, obj.getID());
+		return inspector;
 
 	}
 }

@@ -41,7 +41,7 @@ import es.upm.dit.gsi.shanks.model.element.link.portrayal.Link2DPortrayal;
  * @version 0.1
  * 
  */
-public class EthernetLink2DPortrayal extends Link2DPortrayal {
+public class HANLink2DPortrayal extends Link2DPortrayal {
 
 	/**
 	 * 
@@ -69,8 +69,24 @@ public class EthernetLink2DPortrayal extends Link2DPortrayal {
 	 * @param graphics
 	 * @param info
 	 */
-	private void drawSimpleLink(Link link, Object object, Graphics2D graphics,
-			DrawInfo2D info) {
+	public void drawSimpleLink(Link link, Object object, Graphics2D graphics, DrawInfo2D info) {
+		EdgeDrawInfo2D ei = (EdgeDrawInfo2D) info;
+
+		final int startX = (int) ei.draw.x;
+		final int startY = (int) ei.draw.y;
+		final int endX = (int) ei.secondPoint.x;
+		final int endY = (int) ei.secondPoint.y;
+		graphics.setColor(Color.black);
+		graphics.drawLine(startX, startY, endX, endY);
+	}
+
+	/**
+	 * @param link
+	 * @param object
+	 * @param graphics
+	 * @param info
+	 */
+	public void drawSimpleLinkWithLabel(Link link, Object object, Graphics2D graphics, DrawInfo2D info) {
 		EdgeDrawInfo2D ei = (EdgeDrawInfo2D) info;
 
 		final int startX = (int) ei.draw.x;

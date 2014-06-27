@@ -23,12 +23,11 @@ import es.upm.dit.gsi.shanks.exception.ShanksException;
 import es.upm.dit.gsi.shanks.model.element.device.Device;
 
 /**
- * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.device.Computer.java
+ * Project: shanks-han-module File:
+ * es.upm.dit.gsi.shanks.han.model.element.device.Computer.java
  * 
- * Grupo de Sistemas Inteligentes
- * Departamento de Ingeniería de Sistemas Telemáticos
- * Universidad Politécnica de Madrid (UPM)
+ * Grupo de Sistemas Inteligentes Departamento de Ingeniería de Sistemas
+ * Telemáticos Universidad Politécnica de Madrid (UPM)
  * 
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
@@ -41,19 +40,20 @@ public class Computer extends Device {
 
 	/**
 	 * Constructor
-	 *
+	 * 
 	 * @param id
 	 * @param initialState
 	 * @param isGateway
 	 * @param logger
 	 */
-	public Computer(String id, String initialState, boolean isGateway,
-			Logger logger) {
+	public Computer(String id, String initialState, boolean isGateway, Logger logger) {
 		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkProperties()
 	 */
 	@Override
@@ -62,7 +62,9 @@ public class Computer extends Device {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#checkStatus()
 	 */
 	@Override
@@ -71,8 +73,11 @@ public class Computer extends Device {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#fillIntialProperties()
 	 */
 	@Override
 	public void fillIntialProperties() {
@@ -80,8 +85,11 @@ public class Computer extends Device {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * es.upm.dit.gsi.shanks.model.element.NetworkElement#setPossibleStates()
 	 */
 	@Override
 	public void setPossibleStates() {

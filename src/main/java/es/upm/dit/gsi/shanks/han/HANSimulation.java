@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package es.upm.dit.gsi.shanks.han.model;
+package es.upm.dit.gsi.shanks.han;
 
 import java.util.Properties;
 
@@ -54,9 +54,8 @@ public class HANSimulation extends ShanksSimulation {
 	 * @param properties
 	 * @throws ShanksException
 	 */
-	public HANSimulation(long seed, Class<? extends Scenario> scenarioClass,
-			String scenarioID, String initialState, Properties properties)
-			throws ShanksException {
+	public HANSimulation(long seed, Class<? extends Scenario> scenarioClass, String scenarioID, String initialState,
+			Properties properties) throws ShanksException {
 		super(seed, scenarioClass, scenarioID, initialState, properties);
 		// TODO Auto-generated constructor stub
 	}

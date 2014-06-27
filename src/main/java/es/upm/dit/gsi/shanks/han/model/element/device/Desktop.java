@@ -20,12 +20,11 @@ package es.upm.dit.gsi.shanks.han.model.element.device;
 import java.util.logging.Logger;
 
 /**
- * Project: shanks-han-module
- * File: es.upm.dit.gsi.shanks.han.model.element.device.Desktop.java
+ * Project: shanks-han-module File:
+ * es.upm.dit.gsi.shanks.han.model.element.device.Desktop.java
  * 
- * Grupo de Sistemas Inteligentes
- * Departamento de Ingeniería de Sistemas Telemáticos
- * Universidad Politécnica de Madrid (UPM)
+ * Grupo de Sistemas Inteligentes Departamento de Ingeniería de Sistemas
+ * Telemáticos Universidad Politécnica de Madrid (UPM)
  * 
  * @author Álvaro Carrera Barroso
  * @email a.carrera@gsi.dit.upm.es
@@ -38,14 +37,13 @@ public class Desktop extends Computer {
 
 	/**
 	 * Constructor
-	 *
+	 * 
 	 * @param id
 	 * @param initialState
 	 * @param isGateway
 	 * @param logger
 	 */
-	public Desktop(String id, String initialState, boolean isGateway,
-			Logger logger) {
+	public Desktop(String id, String initialState, boolean isGateway, Logger logger) {
 		super(id, initialState, isGateway, logger);
 		// TODO Auto-generated constructor stub
 	}
